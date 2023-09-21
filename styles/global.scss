@@ -1,0 +1,59 @@
+@use 'background';
+@use 'header';
+@use 'main';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, a {
+    color: background.$corText;
+    font: 400 1rem "Mukta", sans-serif;
+
+    @media (max-width: 768px) {
+        max-width: 80%;
+        align-items: center;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+
+    &__video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.background::after {
+    content: '';
+    width: inherit;
+    height: inherit;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        width: 125%;
+    }
+}
